@@ -71,7 +71,8 @@ class LinuxFanPWMWrite(BaseFanPWMWrite):
     def __exit__(self, exc_type, exc_value, exc_tb):
         # fancontrol way of doing it
         if not self._pwm_enable.is_file():
-            self.set_full_speed()
+            # I don't want full speed on system shutdown (it's cause it's only case fans)
+            # self.set_full_speed()
             return
 
         self._pwm_enable.write_text("0")
