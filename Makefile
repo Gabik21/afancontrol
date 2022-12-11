@@ -9,7 +9,7 @@ lint:
 
 .PHONY: test
 test:
-	coverage run -m py.test
+	coverage run -m pytest
 	coverage report
 
 .PHONY: clean
@@ -25,11 +25,11 @@ develop:
 
 .PHONY: sdist
 sdist:
-	python setup.py sdist
+	python3 setup.py sdist
 
 .PHONY: wheel
 wheel:
-	python setup.py bdist_wheel
+	python3 setup.py bdist_wheel
 
 .PHONY: release
 release: clean sdist wheel
